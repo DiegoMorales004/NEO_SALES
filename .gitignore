@@ -1,0 +1,33 @@
+# Compilados de .NET
+**/bin/
+**/obj/
+
+# Archivos generados por Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación y temporales
+*.dll
+*.exe
+*.pdb
+*.cache
+*.tmp
+
+# Resultados de cobertura y pruebas
+TestResults/
+**/TestResults/
+
+# Archivos de NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Logs
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
