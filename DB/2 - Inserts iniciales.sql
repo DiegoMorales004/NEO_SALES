@@ -12,7 +12,7 @@ DELETE FROM SALE
 
 INSERT INTO SALE_STATUS (ID, [NAME], [DESCRIPTION])
 VALUES
-    (1, 'CARRITO', 'La venta se encuentra en proceso de construcción'), -- SOLO SE AGREGO PRODUCTOS A CARRITO
+    (1, 'PENDIENTE', 'La venta se encuentra en proceso de construcción'), -- SOLO SE AGREGO PRODUCTOS A CARRITO
     (2, 'CONFIRMADA', 'La venta fue confirmada correctamente'), -- LA VENTA SE HIZO
     (3, 'CANCELADA', 'La venta fue cancelada antes de completarse'), -- SE CANCELO EL CARRITO
     (4, 'EXPIRADA', 'La venta no fue completada dentro del tiempo permitido'); -- PASO EL TIEMPO DEL CARRITO

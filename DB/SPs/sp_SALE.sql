@@ -5,8 +5,7 @@ CREATE OR ALTER PROCEDURE sp_SALE
     @p_ID UNIQUEIDENTIFIER = NULL,
     @p_ID_CUSTOMER UNIQUEIDENTIFIER = NULL,
     @p_STATUS_ID INT = NULL,
-    @p_DATE DATETIME = NULL,
-    @p_DATETIME_EXPIRE DATETIME = NULL
+    @p_DATE DATETIME = NULL
 )
 AS
 BEGIN
@@ -18,8 +17,7 @@ BEGIN
             ID,
             ID_CUSTOMER,
             STATUS_ID,
-            [DATE],
-            DATETIME_EXPIRE
+            [DATE]
         FROM SALE
     END;
 
@@ -30,8 +28,7 @@ BEGIN
             ID,
             ID_CUSTOMER,
             STATUS_ID,
-            [DATE],
-            DATETIME_EXPIRE
+            [DATE]
         FROM SALE
         WHERE ID = @p_ID;
     END;
@@ -42,8 +39,7 @@ BEGIN
             ID,
             ID_CUSTOMER,
             STATUS_ID,
-            [DATE],
-            DATETIME_EXPIRE
+            [DATE]
         FROM SALE
         WHERE STATUS_ID = @p_STATUS_ID;
     END;
@@ -55,8 +51,7 @@ BEGIN
             ID,
             ID_CUSTOMER,
             STATUS_ID,
-            [DATE],
-            DATETIME_EXPIRE
+            [DATE]
         FROM SALE
         WHERE
             ID_CUSTOMER = @p_ID_CUSTOMER
@@ -70,22 +65,19 @@ BEGIN
             ID,
             ID_CUSTOMER,
             STATUS_ID,
-            [DATE],
-            DATETIME_EXPIRE
+            [DATE]
         )
         OUTPUT
             INSERTED.ID,
             INSERTED.ID_CUSTOMER,
             INSERTED.STATUS_ID,
-            INSERTED.[DATE],
-            INSERTED.DATETIME_EXPIRE
+            INSERTED.[DATE]
         VALUES
         (
             NEWID(),
             @p_ID_CUSTOMER,
             @p_STATUS_ID,
-            ISNULL(@p_DATE, GETDATE()),
-            @p_DATETIME_EXPIRE
+            ISNULL(@p_DATE, GETDATE())
         );
     END;
 
@@ -96,14 +88,12 @@ BEGIN
         SET
             ID_CUSTOMER = @p_ID_CUSTOMER,
             STATUS_ID = @p_STATUS_ID,
-            [DATE] = @p_DATE,
-            DATETIME_EXPIRE = @p_DATETIME_EXPIRE
+            [DATE] = @p_DATE
         OUTPUT
             INSERTED.ID,
             INSERTED.ID_CUSTOMER,
             INSERTED.STATUS_ID,
-            INSERTED.[DATE],
-            INSERTED.DATETIME_EXPIRE
+            INSERTED.[DATE]
         WHERE ID = @p_ID;
     END;
 
