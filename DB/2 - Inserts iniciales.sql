@@ -18,13 +18,13 @@ VALUES
     (4, 'EXPIRADA', 'La venta no fue completada dentro del tiempo permitido'); -- PASO EL TIEMPO DEL CARRITO
 
 /*Insertar clientes*/
-INSERT INTO CUSTOMER (ID, [NAME], EMAIL, USER_CREATE)
+INSERT INTO CUSTOMER (ID, NIT, [NAME], EMAIL, USER_CREATE)
 VALUES
-    (NEWID(), 'Juan Pérez', 'juan.perez@correo.com', 'SISTEMA'),
-    (NEWID(), 'María González', 'maria.gonzalez@correo.com', 'SISTEMA'),
-    (NEWID(), 'Carlos Rodríguez', 'carlos.rodriguez@correo.com', 'SISTEMA'),
-    (NEWID(), 'Ana Martínez', 'ana.martinez@correo.com', 'SISTEMA'),
-    (NEWID(), 'Luis Hernández', 'luis.hernandez@correo.com', 'SISTEMA');
+    (NEWID(), '900123456', 'Juan Pérez', 'juan.perez@correo.com', 'SISTEMA'),
+    (NEWID(), '900234567', 'María González', 'maria.gonzalez@correo.com', 'SISTEMA'),
+    (NEWID(), '900345678', 'Carlos Rodríguez', 'carlos.rodriguez@correo.com', 'SISTEMA'),
+    (NEWID(), '900456789', 'Ana Martínez', 'ana.martinez@correo.com', 'SISTEMA'),
+    (NEWID(), '900567890', 'Luis Hernández', 'luis.hernandez@correo.com', 'SISTEMA');
 GO
 
 /*Productos iniciales*/
