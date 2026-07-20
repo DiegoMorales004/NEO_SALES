@@ -1,6 +1,3 @@
-USE NEO_SALES;
-GO
-
 /*
 =========================================================
      1. Verificar que la venta exista y este en estado PENDIENTE

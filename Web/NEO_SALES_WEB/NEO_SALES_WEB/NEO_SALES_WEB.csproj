@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NEO_SALES.CORE\NEO_SALES.CORE.csproj" />
+    <ProjectReference Include="..\NEO_SALES.INFRASTRUCTURE\NEO_SALES.INFRASTRUCTURE.csproj" />
+  </ItemGroup>
+
 </Project>

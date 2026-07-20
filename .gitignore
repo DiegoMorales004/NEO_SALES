@@ -27,6 +27,8 @@ packages/
 
 # Logs
 *.log
+*.log
+**/Logs/
 
 # Sistema operativo
 .DS_Store

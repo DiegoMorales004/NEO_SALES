@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.AspNetCore.RateLimiting;
 using NEO_SALES.CORE.Models.Configuration;
 using NEO_SALES.INFRASTRUCTURE.Extensions;
 using NEO_SALES.INFRASTRUCTURE.Filters;
@@ -6,6 +7,8 @@ using Scalar.AspNetCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.ConfigureKestrel(options => options.AddServerHeader = false);
 
 builder.Host.UseSerilog((context, configuration) =>
 {
@@ -36,6 +39,17 @@ builder.Services.AddControllers(options =>
 
 builder.Services.AddOpenApi();
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddFixedWindowLimiter("login", limiterOptions =>
+    {
+        limiterOptions.PermitLimit = 5;
+        limiterOptions.Window = TimeSpan.FromMinutes(1);
+        limiterOptions.QueueLimit = 0;
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -44,7 +58,20 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
+app.Use(async (context, next) =>
+{
+    var headers = context.Response.Headers;
+    headers["X-Content-Type-Options"] = "nosniff";
+    headers["X-Frame-Options"] = "DENY";
+    headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
+    headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()";
+    headers["Cross-Origin-Opener-Policy"] = "same-origin";
+    await next();
+});
+
 app.UseHttpsRedirection();
+
+app.UseRateLimiter();
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -61,7 +88,7 @@ app.MapGet("/health", () =>
     {
         Status = "OK",
         Version = version,
-        Random = Random.Shared.Next()
+        Random = Random.Shared.NextDouble()
     });
 });
 

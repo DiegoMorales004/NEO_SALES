@@ -1,5 +1,20 @@
+:root {
+  --neo-purple: #6A1B9A;
+  --neo-purple-dark: #4A1268;
+  --neo-purple-light: #9C4DCC;
+  --neo-yellow: #FFD600;
+  --neo-yellow-dark: #C7A500;
+  --neo-white: #FFFFFF;
+  --neo-ink: #241429;
+  --neo-gray-bg: #F5F3F7;
+  --neo-gray-border: #E1D9E8;
+  --neo-radius: 0.6rem;
+}
+
 html {
   font-size: 14px;
+  position: relative;
+  min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,17 +23,15 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
   margin-bottom: 60px;
+  background-color: var(--neo-gray-bg);
+  color: var(--neo-ink);
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--neo-purple-light);
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +41,138 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+a {
+  color: var(--neo-purple);
+}
+
+a:hover {
+  color: var(--neo-purple-dark);
+}
+
+.btn-neo-primary {
+  background-color: var(--neo-purple);
+  border-color: var(--neo-purple);
+  color: var(--neo-white);
+}
+
+.btn-neo-primary:hover,
+.btn-neo-primary:focus {
+  background-color: var(--neo-purple-dark);
+  border-color: var(--neo-purple-dark);
+  color: var(--neo-white);
+}
+
+.btn-neo-accent {
+  background-color: var(--neo-yellow);
+  border-color: var(--neo-yellow);
+  color: var(--neo-ink);
+  font-weight: 600;
+}
+
+.btn-neo-accent:hover,
+.btn-neo-accent:focus {
+  background-color: var(--neo-yellow-dark);
+  border-color: var(--neo-yellow-dark);
+  color: var(--neo-ink);
+}
+
+.btn-neo-outline {
+  background-color: transparent;
+  border: 1px solid var(--neo-purple);
+  color: var(--neo-purple);
+}
+
+.btn-neo-outline:hover {
+  background-color: var(--neo-purple);
+  color: var(--neo-white);
+}
+
+.neo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.neo-action-btn {
+  min-width: 6.75rem;
+}
+
+body.neo-modal-open {
+  overflow: hidden;
+}
+
+.neo-card {
+  background-color: var(--neo-white);
+  border: 1px solid var(--neo-gray-border);
+  border-radius: var(--neo-radius);
+  box-shadow: 0 2px 10px rgba(106, 27, 154, 0.06);
+}
+
+.neo-page-title {
+  color: var(--neo-purple-dark);
+  font-weight: 700;
+}
+
+.neo-badge-pending {
+  background-color: var(--neo-yellow);
+  color: var(--neo-ink);
+}
+
+.neo-badge-confirmed {
+  background-color: var(--neo-purple);
+  color: var(--neo-white);
+}
+
+.neo-badge-cancelled,
+.neo-badge-expired {
+  background-color: #ADA3B5;
+  color: var(--neo-white);
+}
+
+.neo-loading {
+  color: #7A6B85;
+  font-style: italic;
+}
+
+.neo-empty-state {
+  color: #7A6B85;
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.neo-narrow-card {
+  max-width: 640px;
+}
+
+@media (max-width: 575.98px) {
+  .table-responsive-cards table,
+  .table-responsive-cards thead {
+    display: none;
+  }
+
+  .table-responsive-cards tbody tr {
+    display: block;
+    background-color: var(--neo-white);
+    border: 1px solid var(--neo-gray-border);
+    border-radius: var(--neo-radius);
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .table-responsive-cards td {
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    padding: 0.35rem 0;
+  }
+
+  .table-responsive-cards td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--neo-purple-dark);
+    margin-right: 1rem;
+  }
 }

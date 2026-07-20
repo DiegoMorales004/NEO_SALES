@@ -8,11 +8,7 @@ namespace NEO_SALES_WEB.Controllers
     {
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            ViewData["Title"] = "Inicio";
             return View();
         }
 

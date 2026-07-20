@@ -1,0 +1,45 @@
+@model ProductFormViewModel
+@{
+    ViewData["Title"] = "Nuevo producto";
+}
+
+<div class="mb-3">
+    <a asp-controller="Product" asp-action="Index" class="text-decoration-none">&larr; Volver a productos</a>
+</div>
+
+<div class="neo-card neo-narrow-card p-4">
+    <h1 class="neo-page-title h4 mb-4">Nuevo producto</h1>
+
+    <div id="neoProductFormAlert" class="alert alert-danger d-none" role="alert"></div>
+
+    <form id="neoProductForm" novalidate>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" maxlength="150"/>
+            <span asp-validation-for="Name" class="text-danger small"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" type="number" step="0.01" min="0.01" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger small"></span>
+            </div>
+            <div class="col-6 mb-3">
+                <label asp-for="Stock" class="form-label"></label>
+                <input asp-for="Stock" type="number" step="1" min="0" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger small"></span>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-neo-primary" id="neoProductFormSubmit">Guardar</button>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-neo-outline">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/page/product/create.js" asp-append-version="true"></script>
+}

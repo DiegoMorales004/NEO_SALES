@@ -1,9 +1,12 @@
 <mxfile host="Electron">
   <diagram id="pKOhz8ZZri_PyalXEFgO" name="Page-1">
-    <mxGraphModel dx="1414" dy="1975" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2020" dy="2350" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="2u0UX8FqfCRjnRA3boOV-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#CCE5FF,#808080);strokeColor=#36393d;arcSize=0;" value="" vertex="1">
+          <mxGeometry height="850" width="820" x="40" y="-100" as="geometry" />
+        </mxCell>
         <mxCell id="2" parent="1" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=0;strokeColor=default;fontSize=16;" value="CUSTOMER" vertex="1">
           <mxGeometry height="300" width="250" x="160" y="40" as="geometry" />
         </mxCell>
@@ -434,7 +437,7 @@
         <mxCell id="uQLEiAbMt51ykX4zQsiA-170" parent="1" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=28;fontColor=light-dark(#0070F2,#4D4D4D);fontFamily=Helvetica;fontStyle=3" value="NEO_SALES" vertex="1">
           <mxGeometry height="50" width="190" x="90" y="-80" as="geometry" />
         </mxCell>
-        <mxCell id="uQLEiAbMt51ykX4zQsiA-171" parent="1" style="text;align=center;fontStyle=3;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontColor=light-dark(#000000,#808080);" value="Version 1.0.0" vertex="1">
+        <mxCell id="uQLEiAbMt51ykX4zQsiA-171" parent="1" style="text;align=center;fontStyle=3;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontColor=light-dark(#000000,#000000);" value="Version 1.0.0" vertex="1">
           <mxGeometry height="26" width="80" x="90" y="-30" as="geometry" />
         </mxCell>
       </root>

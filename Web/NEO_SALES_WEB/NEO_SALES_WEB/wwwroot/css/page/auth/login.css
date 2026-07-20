@@ -1,0 +1,14 @@
+.neo-auth-body {
+  background: linear-gradient(160deg, var(--neo-purple) 0%, var(--neo-purple-dark) 55%, var(--neo-ink) 100%);
+  min-height: 100vh;
+}
+
+.neo-login-wrapper {
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.neo-login-card {
+  width: 100%;
+  max-width: 420px;
+}

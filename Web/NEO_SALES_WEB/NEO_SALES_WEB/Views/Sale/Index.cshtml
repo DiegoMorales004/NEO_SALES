@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Ventas";
+}
+
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-3 gap-2">
+    <h1 class="neo-page-title h3 mb-0">Ventas</h1>
+    <button type="button" class="btn btn-neo-primary" id="neoNewSaleTrigger">+ Nueva venta</button>
+</div>
+
+<div class="neo-card p-3 mb-3">
+    <label class="form-label mb-2">Filtrar por estado</label>
+    <div id="neoSaleStatusFilters" class="d-flex flex-wrap gap-2">
+        <span class="neo-loading">Cargando estados...</span>
+    </div>
+</div>
+
+<div class="neo-card p-3">
+    <div id="neoSaleLoading" class="neo-loading">Cargando ventas...</div>
+    <div id="neoSaleEmpty" class="neo-empty-state d-none">No hay ventas para el filtro seleccionado.</div>
+
+    <div class="table-responsive table-responsive-cards d-none" id="neoSaleTableWrapper">
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th class="text-end">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="neoSaleTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="neoNewSaleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h5 neo-page-title">Nueva venta</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div id="neoNewSaleAlert" class="alert alert-danger d-none"></div>
+                <p class="text-muted small">Busca y selecciona el cliente para iniciar (o continuar) su venta.</p>
+                <label for="neoNewSaleCustomerSearch" class="form-label">Buscar cliente</label>
+                <input type="search" id="neoNewSaleCustomerSearch" class="form-control" placeholder="Nombre, correo o NIT..." autocomplete="off" />
+                <div id="neoNewSaleCustomerResults" class="list-group mt-2"></div>
+                <div id="neoNewSaleLoading" class="neo-loading d-none mt-2">Preparando venta...</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-neo-outline" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/page/sale/index.css" asp-append-version="true" />
+    <script src="~/js/page/sale/index.js" asp-append-version="true"></script>
+}

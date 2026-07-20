@@ -1,0 +1,15 @@
+#neoNewSaleCustomerResults .list-group-item {
+  cursor: pointer;
+}
+
+.neo-status-filter {
+  border: 1px solid var(--neo-gray-border);
+  background-color: var(--neo-white);
+  color: var(--neo-ink);
+}
+
+.neo-status-filter.active {
+  background-color: var(--neo-purple);
+  border-color: var(--neo-purple);
+  color: var(--neo-white);
+}

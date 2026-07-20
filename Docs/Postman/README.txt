@@ -2,8 +2,8 @@ En la ruta actual se encuentra el archivo "NEO_SALES.postman_collection.json" un
 
 Inmportante mencionar que es posible que no se hayan exportado las variables de entorno, asi que recommiendo crear manualmente (en postman) las siguientes: 
 
-- URL_LOCAL: Por defecto el proyecto se levanta en la ruta https://localhost:44394/api
-- URL_PROD (no necesario)
+- URL_LOCAL: https://localhost:44394/api
+- URL_PROD: https://neo-sales-api.runasp.net/api
 - TOKEN: Se setea aca el token segun el script que se dejo en el request de login, para reutilizarlo en otros request.
 
 
