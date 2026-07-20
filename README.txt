@@ -13,5 +13,8 @@ Credenciales para admin:
 	Contrasenia: admin123
 
 
+Nota: El proyecto se encuentra desplegado en un ambiente para pruebas
+	URL: https://neo-sales-web.runasp.net/Auth/Login
+
 
 
