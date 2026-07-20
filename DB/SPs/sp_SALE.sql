@@ -1,6 +1,6 @@
 CREATE OR ALTER PROCEDURE sp_SALE
 (
-    @p_ACTION VARCHAR(16),
+    @p_ACTION VARCHAR(32),
 
     @p_ID UNIQUEIDENTIFIER = NULL,
     @p_ID_CUSTOMER UNIQUEIDENTIFIER = NULL,
@@ -47,6 +47,7 @@ BEGIN
 
     IF @p_ACTION = 'GET_BY_ID_CUSTOMER'
     BEGIN
+        PRINT 'HOLA'
         SELECT
             ID,
             ID_CUSTOMER,
@@ -55,6 +56,19 @@ BEGIN
         FROM SALE
         WHERE
             ID_CUSTOMER = @p_ID_CUSTOMER
+    END;
+
+
+    IF @p_ACTION = 'TOUCH_DATE'
+    BEGIN
+        UPDATE SALE
+        SET [DATE] = GETDATE()
+        OUTPUT
+            INSERTED.ID,
+            INSERTED.ID_CUSTOMER,
+            INSERTED.STATUS_ID,
+            INSERTED.[DATE]
+        WHERE ID = @p_ID;
     END;
 
 

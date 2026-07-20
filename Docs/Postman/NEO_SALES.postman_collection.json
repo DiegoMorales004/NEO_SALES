@@ -1,0 +1,1276 @@
+{
+  "info": {
+    "_postman_id": "6333233f-522a-4859-a4da-90b738a3c2de",
+    "name": "NEO_SALES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "31816422"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.collectionVariables.set(\"TOKEN\", response.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"user\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/auth/login",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "item": [
+        {
+          "name": "Listar Clientes",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/customer",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "customer"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cliente por Guid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/customer/4ad251c6-1743-4d6a-adbb-36cc618f59bf",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "customer",
+                "4ad251c6-1743-4d6a-adbb-36cc618f59bf"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cliente por email o Nit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{URL_LOCAL}}/customer/search/dmorales",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "customer",
+                "search",
+                "dmorales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Diego Morales\",\r\n  \"nit\": \"301669244\",\r\n  \"email\": \"dmorales@dmorales\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/customer",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "customer"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Crear",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Diego Morales\",\r\n  \"nit\": \"301669244\",\r\n  \"email\": \"dmorales@dmorales\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL_LOCAL}}/customer",
+                  "host": [
+                    "{{URL_LOCAL}}"
+                  ],
+                  "path": [
+                    "customer"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 19 Jul 2026 23:13:54 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"0ed54e63-e98a-453c-9406-7a281df65489\",\n    \"name\": \"Diego Morales\",\n    \"nit\": \"301669244\",\n    \"email\": \"dmorales@dmorales\",\n    \"status\": true,\n    \"datetimeCreate\": \"2026-07-19T17:13:54.513\",\n    \"datetimeUpdate\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "Editar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Diego Morales\",\r\n  \"nit\": \"301669244\",\r\n  \"email\": \"dmorales@dmorales\",\r\n  \"status\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/customer/0ed54e63-e98a-453c-9406-7a281df65489",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "customer",
+                "0ed54e63-e98a-453c-9406-7a281df65489"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Editar",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Diego Morales\",\r\n  \"nit\": \"301669244\",\r\n  \"email\": \"dmorales@dmorales\",\r\n  \"status\": false\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL_LOCAL}}/customer/0ed54e63-e98a-453c-9406-7a281df65489",
+                  "host": [
+                    "{{URL_LOCAL}}"
+                  ],
+                  "path": [
+                    "customer",
+                    "0ed54e63-e98a-453c-9406-7a281df65489"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 19 Jul 2026 23:19:41 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"0ed54e63-e98a-453c-9406-7a281df65489\",\n    \"name\": \"Diego Morales\",\n    \"nit\": \"301669244\",\n    \"email\": \"dmorales@dmorales\",\n    \"status\": false,\n    \"datetimeCreate\": \"2026-07-19T17:13:54.513\",\n    \"datetimeUpdate\": \"2026-07-19T17:19:41.65\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Listar Productos",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/product",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Producto por Guid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/product/fee39f52-877a-46fb-a2e9-0ddd2c532e11",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "product",
+                "fee39f52-877a-46fb-a2e9-0ddd2c532e11"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Producto por Nombre",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/product/search/moni",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "product",
+                "search",
+                "moni"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Test laptop\",\r\n  \"price\": 890.99,\r\n  \"stock\": 15\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/product",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Editar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Test laptop\",\r\n    \"price\": 890.99,\r\n    \"stock\": 15,\r\n    \"status\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/product/907a28f2-9753-4ef0-8f15-7475d8b32c2c",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "product",
+                "907a28f2-9753-4ef0-8f15-7475d8b32c2c"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "SaleStatus",
+      "item": [
+        {
+          "name": "Listar Estados",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-status",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Estado por Id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-status/1",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-status",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 5,\r\n  \"name\": \"EN_REVISION\",\r\n  \"description\": \"La venta esta en revision manual\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-status",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Editar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"EN_REVISION\",\r\n  \"description\": \"La venta esta en revision manual antes de confirmarse\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-status/5",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-status",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Sale",
+      "item": [
+        {
+          "name": "Listar Ventas",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Venta por Guid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale/d3a1c2b4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale",
+                "d3a1c2b4-5e6f-4a7b-8c9d-0e1f2a3b4c5d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Ventas por Cliente",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale/customer/0ed54e63-e98a-453c-9406-7a281df65489",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale",
+                "customer",
+                "0ed54e63-e98a-453c-9406-7a281df65489"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idCustomer\": \"0ed54e63-e98a-453c-9406-7a281df65489\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Crear",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idCustomer\": \"0ed54e63-e98a-453c-9406-7a281df65489\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL_LOCAL}}/sale",
+                  "host": [
+                    "{{URL_LOCAL}}"
+                  ],
+                  "path": [
+                    "sale"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 19 Jul 2026 23:47:09 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"93e94fb3-7baa-4510-b62d-15bf9c8895c2\",\n    \"idCustomer\": \"0ed54e63-e98a-453c-9406-7a281df65489\",\n    \"statusId\": 1,\n    \"date\": \"2026-07-19T17:47:09.95\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Confirmar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale/confirm/d3a1c2b4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale",
+                "confirm",
+                "d3a1c2b4-5e6f-4a7b-8c9d-0e1f2a3b4c5d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Carrito de compras",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale/cart/0ed54e63-e98a-453c-9406-7a281df65489",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale",
+                "cart",
+                "0ed54e63-e98a-453c-9406-7a281df65489"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Carrito de compras",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{URL_LOCAL}}/sale/cart/0ed54e63-e98a-453c-9406-7a281df65489",
+                  "host": [
+                    "{{URL_LOCAL}}"
+                  ],
+                  "path": [
+                    "sale",
+                    "cart",
+                    "0ed54e63-e98a-453c-9406-7a281df65489"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jul 2026 01:25:15 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"idSale\": \"ee764f8e-1d32-43ad-8cf4-ac53aa74bf46\",\n    \"idCustomer\": \"0ed54e63-e98a-453c-9406-7a281df65489\",\n    \"date\": \"2026-07-19T19:18:01.863\",\n    \"items\": [\n        {\n            \"idSaleDetail\": \"cc98a638-99dc-40f6-b5d1-0911bb47cb4c\",\n            \"idProduct\": \"907a28f2-9753-4ef0-8f15-7475d8b32c2c\",\n            \"productName\": \"Test laptop\",\n            \"stock\": 15,\n            \"quantity\": 2,\n            \"priceUnit\": 890.99,\n            \"subtotal\": 1781.98\n        },\n        {\n            \"idSaleDetail\": \"be19f2e2-934c-4757-9354-26a8783757c7\",\n            \"idProduct\": \"fa2fdb69-d313-43a8-9039-7f8d7d5872fb\",\n            \"productName\": \"Monitor\",\n            \"stock\": 25,\n            \"quantity\": 1,\n            \"priceUnit\": 243.99,\n            \"subtotal\": 243.99\n        }\n    ],\n    \"total\": 2025.97\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SaleDetail",
+      "item": [
+        {
+          "name": "Listar Detalles",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-detail",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-detail"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Detalle por Guid",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-detail/f1e2d3c4-b5a6-4978-8899-aabbccddeeff",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-detail",
+                "f1e2d3c4-b5a6-4978-8899-aabbccddeeff"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Detalles por Venta",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-detail/sale/d3a1c2b4-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-detail",
+                "sale",
+                "d3a1c2b4-5e6f-4a7b-8c9d-0e1f2a3b4c5d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idSale\": \"ee764f8e-1d32-43ad-8cf4-ac53aa74bf46\",\r\n  \"idProduct\": \"fa2fdb69-d313-43a8-9039-7f8d7d5872fb\",\r\n  \"quantity\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-detail",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-detail"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Crear",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idSale\": \"93e94fb3-7baa-4510-b62d-15bf9c8895c2\",\r\n  \"idProduct\": \"907a28f2-9753-4ef0-8f15-7475d8b32c2c\",\r\n  \"quantity\": 12\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL_LOCAL}}/sale-detail",
+                  "host": [
+                    "{{URL_LOCAL}}"
+                  ],
+                  "path": [
+                    "sale-detail"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Server",
+                  "value": "Microsoft-IIS/10.0"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "ASP.NET"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Jul 2026 00:01:18 GMT"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": \"e97cca58-6d71-47cf-b6a9-43f409e237dc\",\n    \"idSale\": \"93e94fb3-7baa-4510-b62d-15bf9c8895c2\",\n    \"idProduct\": \"907a28f2-9753-4ef0-8f15-7475d8b32c2c\",\n    \"quantity\": 12,\n    \"priceUnit\": 890.99\n}"
+            }
+          ]
+        },
+        {
+          "name": "Editar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idProduct\": \"6b2e6ea1-96cd-4f19-89c2-13a274ac9f3a\",\r\n  \"quantity\": 3,\r\n  \"priceUnit\": 890.99\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-detail/f1e2d3c4-b5a6-4978-8899-aabbccddeeff",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-detail",
+                "f1e2d3c4-b5a6-4978-8899-aabbccddeeff"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{URL_LOCAL}}/sale-detail/93e94fb3-7baa-4510-b62d-15bf9c8895c2",
+              "host": [
+                "{{URL_LOCAL}}"
+              ],
+              "path": [
+                "sale-detail",
+                "93e94fb3-7baa-4510-b62d-15bf9c8895c2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL_LOCAL",
+      "value": ""
+    },
+    {
+      "key": "URL_PROD",
+      "value": ""
+    },
+    {
+      "key": "TOKEN",
+      "value": ""
+    }
+  ]
+}

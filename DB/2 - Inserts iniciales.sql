@@ -20,11 +20,11 @@ VALUES
 /*Insertar clientes*/
 INSERT INTO CUSTOMER (ID, NIT, [NAME], EMAIL, USER_CREATE)
 VALUES
-    (NEWID(), '900123456', 'Juan Pérez', 'juan.perez@correo.com', 'SISTEMA'),
-    (NEWID(), '900234567', 'María González', 'maria.gonzalez@correo.com', 'SISTEMA'),
-    (NEWID(), '900345678', 'Carlos Rodríguez', 'carlos.rodriguez@correo.com', 'SISTEMA'),
-    (NEWID(), '900456789', 'Ana Martínez', 'ana.martinez@correo.com', 'SISTEMA'),
-    (NEWID(), '900567890', 'Luis Hernández', 'luis.hernandez@correo.com', 'SISTEMA');
+    (NEWID(), '900123456', 'Juan Pérez', 'juan.perez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900234567', 'María González', 'maria.gonzalez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900345678', 'Carlos Rodríguez', 'carlos.rodriguez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900456789', 'Ana Martínez', 'ana.martinez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900567890', 'Luis Hernández', 'luis.hernandez@gmail.com', 'SISTEMA');
 GO
 
 /*Productos iniciales*/
