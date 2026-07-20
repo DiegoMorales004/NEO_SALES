@@ -12,19 +12,19 @@ DELETE FROM SALE
 
 INSERT INTO SALE_STATUS (ID, [NAME], [DESCRIPTION])
 VALUES
-    (1, 'CARRITO', 'La venta se encuentra en proceso de construcción'), -- SOLO SE AGREGO PRODUCTOS A CARRITO
+    (1, 'PENDIENTE', 'La venta se encuentra en proceso de construcción'), -- SOLO SE AGREGO PRODUCTOS A CARRITO
     (2, 'CONFIRMADA', 'La venta fue confirmada correctamente'), -- LA VENTA SE HIZO
     (3, 'CANCELADA', 'La venta fue cancelada antes de completarse'), -- SE CANCELO EL CARRITO
     (4, 'EXPIRADA', 'La venta no fue completada dentro del tiempo permitido'); -- PASO EL TIEMPO DEL CARRITO
 
 /*Insertar clientes*/
-INSERT INTO CUSTOMER (ID, [NAME], EMAIL, USER_CREATE)
+INSERT INTO CUSTOMER (ID, NIT, [NAME], EMAIL, USER_CREATE)
 VALUES
-    (NEWID(), 'Juan Pérez', 'juan.perez@correo.com', 'SISTEMA'),
-    (NEWID(), 'María González', 'maria.gonzalez@correo.com', 'SISTEMA'),
-    (NEWID(), 'Carlos Rodríguez', 'carlos.rodriguez@correo.com', 'SISTEMA'),
-    (NEWID(), 'Ana Martínez', 'ana.martinez@correo.com', 'SISTEMA'),
-    (NEWID(), 'Luis Hernández', 'luis.hernandez@correo.com', 'SISTEMA');
+    (NEWID(), '900123456', 'Juan Pérez', 'juan.perez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900234567', 'María González', 'maria.gonzalez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900345678', 'Carlos Rodríguez', 'carlos.rodriguez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900456789', 'Ana Martínez', 'ana.martinez@gmail.com', 'SISTEMA'),
+    (NEWID(), '900567890', 'Luis Hernández', 'luis.hernandez@gmail.com', 'SISTEMA');
 GO
 
 /*Productos iniciales*/

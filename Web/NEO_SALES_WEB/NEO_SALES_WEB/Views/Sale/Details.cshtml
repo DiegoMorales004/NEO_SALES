@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "Detalle de venta";
+    var saleId = (Guid)ViewBag.SaleId;
+}
+
+<div class="mb-3">
+    <a asp-controller="Sale" asp-action="Index" class="text-decoration-none">&larr; Volver a ventas</a>
+</div>
+
+<div class="neo-card p-4" id="neoSaleRoot" data-sale-id="@saleId">
+    <div id="neoSaleLoading" class="neo-loading">Cargando venta...</div>
+    <div id="neoSaleError" class="alert alert-danger d-none"></div>
+
+    <div id="neoSaleContent" class="d-none">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+            <div>
+                <h1 class="h5 neo-page-title mb-1">Cliente: <span id="neoSaleCustomerName"></span></h1>
+                <span class="badge" id="neoSaleStatusBadge"></span>
+                <span class="text-muted small ms-2" id="neoSaleDate"></span>
+            </div>
+            <button type="button" class="btn btn-neo-accent d-none" id="neoConfirmBtn">Terminar la compra</button>
+        </div>
+
+        <div id="neoActionError" class="alert alert-danger alert-dismissible d-none"></div>
+        <div id="neoConfirmWarning" class="alert alert-warning d-none"></div>
+
+        <p class="text-muted small d-none" id="neoCartHint">Agrega los productos que necesites al carrito. Puedes seguir comprando o terminar la compra cuando mas tarde.</p>
+
+        <div class="row g-3 d-none" id="neoEditableSection">
+            <div class="col-12 col-lg-7">
+                <div class="neo-card p-3">
+                    <h2 class="h6 neo-page-title">Productos disponibles</h2>
+                    <input class="form-control mb-2" id="neoCatalogFilter" placeholder="Filtrar por nombre..." autocomplete="off" />
+                    <div id="neoCatalogList" class="neo-catalog-list"></div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5">
+                <div class="neo-card p-3">
+                    <h2 class="h6 neo-page-title">Carrito</h2>
+                    <div id="neoCartLines"></div>
+                    <div class="d-flex justify-content-between fw-bold fs-5 neo-page-title mt-3 pt-2 border-top">
+                        <span>Total</span>
+                        <span id="neoCartTotal">Q0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-none" id="neoReadOnlySection">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="neoReadOnlyBody"></tbody>
+                </table>
+            </div>
+            <div class="text-end fw-bold fs-5 neo-page-title">Total: <span id="neoReadOnlyTotal">Q0.00</span></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="~/css/page/sale/details.css" asp-append-version="true" />
+    <script src="~/js/page/sale/details.js" asp-append-version="true"></script>
+}

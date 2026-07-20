@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="NEO_SALES.CORE/NEO_SALES.CORE.csproj" />
+  <Project Path="NEO_SALES.INFRASTRUCTURE/NEO_SALES.INFRASTRUCTURE.csproj" />
+  <Project Path="NEO_SALES_API/NEO_SALES.API.csproj" />
+</Solution>

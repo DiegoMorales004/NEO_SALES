@@ -1,0 +1,43 @@
+.neo-navbar {
+  background-color: var(--neo-white);
+  border-bottom: 1px solid var(--neo-gray-border);
+}
+
+.neo-navbar .navbar-brand {
+  color: var(--neo-purple);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.neo-navbar .navbar-brand .neo-brand-dot {
+  color: var(--neo-yellow-dark);
+}
+
+.neo-navbar .nav-link {
+  color: #5B5265;
+  font-weight: 500;
+}
+
+.neo-navbar .nav-link:hover,
+.neo-navbar .nav-link.active {
+  color: var(--neo-purple);
+}
+
+.neo-navbar .nav-link.active {
+  border-bottom: 2px solid var(--neo-purple);
+}
+
+.neo-navbar .navbar-toggler {
+  border-color: var(--neo-gray-border);
+}
+
+.neo-footer {
+  background-color: var(--neo-white);
+  border-top: 1px solid var(--neo-gray-border);
+  color: #7A6B85;
+  text-align: center;
+}
+
+main {
+  min-height: 65vh;
+}
